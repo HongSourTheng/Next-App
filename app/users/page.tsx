@@ -1,36 +1,25 @@
 import Link from "next/link";
-
+import UserTable from "./UserTable";
+interface Props {
+  searchParams: { sortOrder: string };
+}
 interface Users {
   id: number;
   name: string;
   email: string;
 }
-async function getUser() {
+const UserPage = async ({ searchParams: { sortOrder } }: Props) => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     next: { revalidate: 2 },
   });
-  return res.json();
-}
-const UserPage = async () => {
-  const users: Users[] = await getUser();
+  const users: Users[] = await res.json();
   return (
     <>
-      <table className="table table-zebra">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td> {user.name}</td>
-              <td> {user.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h1>User</h1>
+      <h2 className="text-blue-600">
+        sorted by: <span className="text-green-600"> {sortOrder}</span>
+      </h2>
+      <UserTable users={users} />
       <Link href="/" className="btn btn-secondary mt-5 px-5">
         Home
       </Link>
