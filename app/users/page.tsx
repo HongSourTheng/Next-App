@@ -11,10 +11,9 @@ const UserPage = ({ searchParams: { sortOrder } }: Props) => {
       <h2 className="text-blue-600">
         sorted by: <span className="text-green-600"> {sortOrder}</span>
       </h2>
+      <Link href='/users/new'  className="btn">New User</Link>
       <UserTable sortOrder={sortOrder} />
-      <Link href="/" className="btn btn-secondary mt-5 px-5">
-        Home
-      </Link>
+    
     </>
   );
 };
