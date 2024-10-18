@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="winter">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <NavBar />
         <main className="p-5">{children}</main>
       </body>
