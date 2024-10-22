@@ -3,16 +3,28 @@ import schema from "./schema";
 
 export function GET(request: NextRequest) {
   return NextResponse.json([
-    { id: 1, name: "John Doe" },
-    { id: 2, name: "Jane Doe" },
-    { id: 3, name: "Alice Doe" },
+    {
+      id: 1,
+      name: "Milk",
+      price: 1.5,
+    },
+    {
+      id: 2,
+      name: "Eggs",
+      price: 2.5,
+    },
+    { id: 3, name: "cheese", price: 3.5 },
   ]);
 }
 
 export async function POST(request: NextRequest) {
-  const body = await request.json(); // // Converts the request body to JSON // parsing
+  const body = await request.json();
   const validation = schema.safeParse(body);
+
   if (!validation.success)
     return NextResponse.json(validation.error.errors, { status: 400 });
-  return NextResponse.json({ id: 1, name: body.name }, { status: 201 }); // sending
+  return NextResponse.json(
+    { id: 4, name: body.name, price: body.price },
+    { status: 201 }
+  );
 }
