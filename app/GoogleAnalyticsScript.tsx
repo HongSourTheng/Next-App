@@ -10,7 +10,7 @@ const GoogleAnalyticsScript = () => {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-42CY1D4P5S"
       ></Script>
-      <Script>
+      <Script id="google_analytics">
         {`window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());

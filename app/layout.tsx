@@ -1,21 +1,18 @@
-import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
-import NavBar from "./NavBar";
-import { Suspense } from "react";
-import AuthProvider from "./auth/Provider";
-import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
 import localFont from "next/font/local";
-import { url } from "inspector";
+import AuthProvider from "./auth/Provider";
+import "./globals.css";
+import GoogleAnalyticsScript from "./GoogleAnalyticsScript";
+import NavBar from "./NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
-//change fonts
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-roboto",
-});
+// //change fonts
+// const roboto = Roboto({
+//   subsets: ["latin"],
+//   weight: ["400", "500"],
+//   variable: "--font-roboto",
+// });
 //custom fonts
 const redHatText = localFont({
   src: "../public/fonts/RedHatText-Bold.ttf",
