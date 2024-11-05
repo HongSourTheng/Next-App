@@ -11,5 +11,5 @@ export const config = {
   // *: zero or more
   // +: one or mroe
   // ?: zero or one
-  matcher: ["/users/:id*"],
+  matcher: ["/admin", "/users/:id*"],
 };

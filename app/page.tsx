@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import ProductCard from "./components/ProductCard";
 import { getServerSession } from "next-auth";
@@ -9,12 +8,11 @@ import { authOptions } from "./api/auth/authOptions";
 // import HeavyComponent from "./components/HeavyComponent";
 
 //use when you want to display on browser when only needed (reduce heavy load)
-import dynamic from "next/dynamic";
-const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
-  ssr: false, // when render only on the client side
-  loading: () => <p>Loading...</p>,
-});
-
+// import dynamic from "next/dynamic";
+// const HeavyComponent = dynamic(() => import("./components/HeavyComponent"), {
+//   ssr: false, // when render only on the client side
+//   loading: () => <p>Loading...</p>,
+// });
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -26,21 +24,23 @@ export default async function Home() {
       </Link>
       <Link href="/users/new">NewUser</Link>
       <ProductCard />
-      using Image from Next js
+      {/* using Image from Next js */}
       <Image
         src={room}
         alt="room"
-        fill
+        width={500}
+        height={500}
         quality={80}
-        sizes="(max-width:480px) 100vw, (max-width:768px) 50vw,33vw"
-        className="object-cover"
+        
+        className="object-cover mt-5"
       />
     </main>
   );
 }
 
 // import _ from "lodash";
-{/* <main>
+{
+  /* <main>
   <h1>Hello World.</h1>
   <button
     onClick={async () => {
@@ -53,4 +53,5 @@ export default async function Home() {
   >
     Show
   </button>
-</main>; */}
+</main>; */
+}
